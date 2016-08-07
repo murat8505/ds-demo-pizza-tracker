@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Pizza Tracker</title>
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+      }
+    </style>
+    <script type="text/javascript" src="https://rawgit.com/deepstreamIO/deepstream.io-client-js/master/dist/deepstream.min.js"></script>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      var map;
+      var client;
+      var markers={};
+      var pizzaIcon = 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/PEO-pizza.svg/32px-PEO-pizza.svg.png';
+
+      function addDeliveryTracking( trackingId ) {
+        var record = client.record.getRecord( trackingId );
+        var marker = new google.maps.Marker({
+            map: map,
+            title: `Location of delivery person: ${trackingId}`,
+            icon: pizzaIcon
+        });
+        record.subscribe( function( data ) {
+           if( data.lon ) {
+            data.lng = data.lon;
+           }
+           marker.setPosition(data);
+        } );
+        markers[ trackingId ] = marker;
+      }
+
+      function removeDeliveryTracking( trackingId ) {
+        markers[ trackingId ].setMap( null );
+        delete markers[ trackingId ];
+      }
+
+      function renderList( list ) {
+        list.getEntries().forEach( addDeliveryTracking );
+        list.on( 'entry-added', addDeliveryTracking );
+        list.on( 'entry-removed', removeDeliveryTracking );
+      }
+
+      function initDeepstreamClient() {
+        client = deepstream( '52.29.229.244:6020' );
+        client.login( {}, function( success ) {
+          var list = client.record.getList( 'pizza-tracker/users' );
+          list.whenReady( renderList );
+        });
+      }
+
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 12,
+          center: {lat: 52.52220663, lng: 13.40849051},
+          styles: [
+            {
+              featureType: 'all',
+              stylers: [
+                { saturation: -80 }
+              ]
+            },{
+              featureType: 'road.arterial',
+              elementType: 'geometry',
+              stylers: [
+                { hue: '#00ffee' },
+                { saturation: 50 }
+              ]
+            },{
+              featureType: 'poi.business',
+              elementType: 'labels',
+              stylers: [
+                { visibility: 'off' }
+              ]
+            }
+          ]
+        });
+
+        initDeepstreamClient();
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBm8FqDM3TZ6k2zRxwVhvFA2DVaBwq6qps&callback=initMap">
+    </script>
+  </body>
+</html>

@@ -13,13 +13,14 @@ import android.widget.Toast;
 import com.google.gson.JsonObject;
 import io.deepstream.DeepstreamClient;
 import io.deepstream.DeepstreamRuntimeErrorHandler;
+import io.deepstream.List;
 import io.deepstream.Record;
 import io.deepstream.constants.Event;
 import io.deepstream.constants.Topic;
 
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 
-public class MainActivity extends AppCompatActivity {
+public class TrackingActivity extends AppCompatActivity {
     private LocationManager locationManager;
 
     @Override
@@ -44,6 +45,12 @@ public class MainActivity extends AppCompatActivity {
                 System.err.println( topic.toString() + " " + event.toString() + " " + s);
             }
         });
+
+        String username = DeepstreamService.getInstance().getUserName();
+        List users = client.record.getList( "pizza-tracker/users" );
+        if( !users.getEntries().contains( username )) {
+            users.addEntry( username );
+        }
     }
 
     private final LocationListener locationListenerGPS = new LocationListener() {
@@ -58,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    Toast.makeText(MainActivity.this, "Location Change", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(TrackingActivity.this, "Location Change", Toast.LENGTH_SHORT).show();
                 }
             });
 
@@ -68,13 +75,13 @@ public class MainActivity extends AppCompatActivity {
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    Toast.makeText(MainActivity.this, "Record Content", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(TrackingActivity.this, "Record Content", Toast.LENGTH_SHORT).show();
                 }
             });
 
             JsonObject coords = new JsonObject();
             coords.addProperty( "lat", latitudeNetwork );
-            coords.addProperty( "lon", longitudeNetwork );
+            coords.addProperty( "lng", longitudeNetwork );
             coords.addProperty( "online", true );
             record.set( coords );
 
@@ -83,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
             runOnUiThread(new Runnable() {
                 @Override
                     public void run() {
-                        Toast.makeText(MainActivity.this, "GPS Provider update", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(TrackingActivity.this, "GPS Provider update", Toast.LENGTH_SHORT).show();
                     }
             });
         }
