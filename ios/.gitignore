@@ -16,3 +16,4 @@ report.xml
 Preview.html
 Pods/
 *.ipa
+.DS_Store
