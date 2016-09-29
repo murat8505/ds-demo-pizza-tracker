@@ -12,7 +12,7 @@ final class DeepstreamService {
     
     static let sharedInstance = DeepstreamService()
     
-    private var userName : String!
+    private (set) var userName : String?
     private var deepstreamClient : DeepstreamClient!
     
     init() {
