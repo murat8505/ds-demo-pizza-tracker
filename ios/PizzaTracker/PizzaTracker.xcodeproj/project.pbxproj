@@ -7,14 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B79B62477737D5FA87CA160D /* Pods_PizzaTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE74A5F8F117FDA8D2E0654B /* Pods_PizzaTracker.framework */; };
 		FAD824E81D9DDEFF002D240B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD824E71D9DDEFF002D240B /* AppDelegate.swift */; };
 		FAD824EA1D9DDEFF002D240B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD824E91D9DDEFF002D240B /* ViewController.swift */; };
 		FAD824ED1D9DDEFF002D240B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD824EB1D9DDEFF002D240B /* Main.storyboard */; };
 		FAD824EF1D9DDEFF002D240B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAD824EE1D9DDEFF002D240B /* Assets.xcassets */; };
 		FAD824F21D9DDEFF002D240B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD824F01D9DDEFF002D240B /* LaunchScreen.storyboard */; };
+		FAD824FA1D9DDF8B002D240B /* DeepstreamService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD824F91D9DDF8B002D240B /* DeepstreamService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		25F016570D3C98DC4C2A3349 /* Pods-PizzaTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PizzaTracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PizzaTracker/Pods-PizzaTracker.debug.xcconfig"; sourceTree = "<group>"; };
+		AE74A5F8F117FDA8D2E0654B /* Pods_PizzaTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PizzaTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DED74902FB7A996EFC4BB9DB /* Pods-PizzaTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PizzaTracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-PizzaTracker/Pods-PizzaTracker.release.xcconfig"; sourceTree = "<group>"; };
 		FAD824E41D9DDEFF002D240B /* PizzaTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PizzaTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAD824E71D9DDEFF002D240B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAD824E91D9DDEFF002D240B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +27,8 @@
 		FAD824EE1D9DDEFF002D240B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAD824F11D9DDEFF002D240B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FAD824F31D9DDEFF002D240B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAD824F91D9DDF8B002D240B /* DeepstreamService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeepstreamService.swift; sourceTree = "<group>"; };
+		FAD824FB1D9DE0F8002D240B /* PizzaTracker-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PizzaTracker-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +36,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B79B62477737D5FA87CA160D /* Pods_PizzaTracker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		12F5A4A1AE004734F2835C9F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				25F016570D3C98DC4C2A3349 /* Pods-PizzaTracker.debug.xcconfig */,
+				DED74902FB7A996EFC4BB9DB /* Pods-PizzaTracker.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		3AB68001431C020D1692E9FD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AE74A5F8F117FDA8D2E0654B /* Pods_PizzaTracker.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FAD824DB1D9DDEFE002D240B = {
 			isa = PBXGroup;
 			children = (
 				FAD824E61D9DDEFF002D240B /* PizzaTracker */,
 				FAD824E51D9DDEFF002D240B /* Products */,
+				12F5A4A1AE004734F2835C9F /* Pods */,
+				3AB68001431C020D1692E9FD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,6 +87,8 @@
 				FAD824EE1D9DDEFF002D240B /* Assets.xcassets */,
 				FAD824F01D9DDEFF002D240B /* LaunchScreen.storyboard */,
 				FAD824F31D9DDEFF002D240B /* Info.plist */,
+				FAD824F91D9DDF8B002D240B /* DeepstreamService.swift */,
+				FAD824FB1D9DE0F8002D240B /* PizzaTracker-Bridging-Header.h */,
 			);
 			path = PizzaTracker;
 			sourceTree = "<group>";
@@ -71,9 +100,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FAD824F61D9DDEFF002D240B /* Build configuration list for PBXNativeTarget "PizzaTracker" */;
 			buildPhases = (
+				21F978B3F2AB6DD9EB10FB0A /* [CP] Check Pods Manifest.lock */,
 				FAD824E01D9DDEFF002D240B /* Sources */,
 				FAD824E11D9DDEFF002D240B /* Frameworks */,
 				FAD824E21D9DDEFF002D240B /* Resources */,
+				1A54862A820FB0C6C820FB00 /* [CP] Embed Pods Frameworks */,
+				5D68BA6E8320D4A41124F482 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -130,6 +162,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1A54862A820FB0C6C820FB00 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PizzaTracker/Pods-PizzaTracker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		21F978B3F2AB6DD9EB10FB0A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5D68BA6E8320D4A41124F482 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PizzaTracker/Pods-PizzaTracker-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FAD824E01D9DDEFF002D240B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -137,6 +217,7 @@
 			files = (
 				FAD824EA1D9DDEFF002D240B /* ViewController.swift in Sources */,
 				FAD824E81D9DDEFF002D240B /* AppDelegate.swift in Sources */,
+				FAD824FA1D9DDF8B002D240B /* DeepstreamService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,23 +328,27 @@
 		};
 		FAD824F71D9DDEFF002D240B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 25F016570D3C98DC4C2A3349 /* Pods-PizzaTracker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PizzaTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.deepstream.io.PizzaTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "${PROJECT_DIR}/PizzaTracker/PizzaTracker-Bridging-Header.h";
 			};
 			name = Debug;
 		};
 		FAD824F81D9DDEFF002D240B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DED74902FB7A996EFC4BB9DB /* Pods-PizzaTracker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PizzaTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.deepstream.io.PizzaTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "${PROJECT_DIR}/PizzaTracker/PizzaTracker-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -286,6 +371,7 @@
 				FAD824F81D9DDEFF002D240B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
