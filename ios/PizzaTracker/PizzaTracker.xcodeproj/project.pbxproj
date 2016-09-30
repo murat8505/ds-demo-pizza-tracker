@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		B79B62477737D5FA87CA160D /* Pods_PizzaTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE74A5F8F117FDA8D2E0654B /* Pods_PizzaTracker.framework */; };
 		FAD824E81D9DDEFF002D240B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD824E71D9DDEFF002D240B /* AppDelegate.swift */; };
-		FAD824EA1D9DDEFF002D240B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD824E91D9DDEFF002D240B /* ViewController.swift */; };
-		FAD824ED1D9DDEFF002D240B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD824EB1D9DDEFF002D240B /* Main.storyboard */; };
 		FAD824EF1D9DDEFF002D240B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAD824EE1D9DDEFF002D240B /* Assets.xcassets */; };
 		FAD824F21D9DDEFF002D240B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD824F01D9DDEFF002D240B /* LaunchScreen.storyboard */; };
 		FAD824FA1D9DDF8B002D240B /* DeepstreamService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD824F91D9DDF8B002D240B /* DeepstreamService.swift */; };
+		FAD824FE1D9DE29F002D240B /* TrackingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD824FC1D9DE29F002D240B /* TrackingViewController.swift */; };
+		FAD824FF1D9DE29F002D240B /* TrackingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD824FD1D9DE29F002D240B /* TrackingViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,13 +22,13 @@
 		DED74902FB7A996EFC4BB9DB /* Pods-PizzaTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PizzaTracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-PizzaTracker/Pods-PizzaTracker.release.xcconfig"; sourceTree = "<group>"; };
 		FAD824E41D9DDEFF002D240B /* PizzaTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PizzaTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAD824E71D9DDEFF002D240B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FAD824E91D9DDEFF002D240B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FAD824EC1D9DDEFF002D240B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FAD824EE1D9DDEFF002D240B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAD824F11D9DDEFF002D240B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FAD824F31D9DDEFF002D240B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAD824F91D9DDF8B002D240B /* DeepstreamService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeepstreamService.swift; sourceTree = "<group>"; };
 		FAD824FB1D9DE0F8002D240B /* PizzaTracker-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PizzaTracker-Bridging-Header.h"; sourceTree = "<group>"; };
+		FAD824FC1D9DE29F002D240B /* TrackingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingViewController.swift; sourceTree = "<group>"; };
+		FAD824FD1D9DE29F002D240B /* TrackingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrackingViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,15 +82,31 @@
 			isa = PBXGroup;
 			children = (
 				FAD824E71D9DDEFF002D240B /* AppDelegate.swift */,
-				FAD824E91D9DDEFF002D240B /* ViewController.swift */,
-				FAD824EB1D9DDEFF002D240B /* Main.storyboard */,
+				FAD825011D9DE2AB002D240B /* Supporting Files */,
+				FAD824F91D9DDF8B002D240B /* DeepstreamService.swift */,
+				FAD824FB1D9DE0F8002D240B /* PizzaTracker-Bridging-Header.h */,
+				FAD825001D9DE2A3002D240B /* TrackingViewController */,
+			);
+			path = PizzaTracker;
+			sourceTree = "<group>";
+		};
+		FAD825001D9DE2A3002D240B /* TrackingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FAD824FC1D9DE29F002D240B /* TrackingViewController.swift */,
+				FAD824FD1D9DE29F002D240B /* TrackingViewController.xib */,
+			);
+			name = TrackingViewController;
+			sourceTree = "<group>";
+		};
+		FAD825011D9DE2AB002D240B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
 				FAD824EE1D9DDEFF002D240B /* Assets.xcassets */,
 				FAD824F01D9DDEFF002D240B /* LaunchScreen.storyboard */,
 				FAD824F31D9DDEFF002D240B /* Info.plist */,
-				FAD824F91D9DDF8B002D240B /* DeepstreamService.swift */,
-				FAD824FB1D9DE0F8002D240B /* PizzaTracker-Bridging-Header.h */,
 			);
-			path = PizzaTracker;
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,8 +171,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAD824F21D9DDEFF002D240B /* LaunchScreen.storyboard in Resources */,
+				FAD824FF1D9DE29F002D240B /* TrackingViewController.xib in Resources */,
 				FAD824EF1D9DDEFF002D240B /* Assets.xcassets in Resources */,
-				FAD824ED1D9DDEFF002D240B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,7 +231,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAD824EA1D9DDEFF002D240B /* ViewController.swift in Sources */,
+				FAD824FE1D9DE29F002D240B /* TrackingViewController.swift in Sources */,
 				FAD824E81D9DDEFF002D240B /* AppDelegate.swift in Sources */,
 				FAD824FA1D9DDF8B002D240B /* DeepstreamService.swift in Sources */,
 			);
@@ -224,14 +240,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		FAD824EB1D9DDEFF002D240B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FAD824EC1D9DDEFF002D240B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		FAD824F01D9DDEFF002D240B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
