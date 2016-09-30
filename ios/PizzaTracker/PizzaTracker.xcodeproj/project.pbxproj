@@ -14,6 +14,8 @@
 		FAD824FA1D9DDF8B002D240B /* DeepstreamService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD824F91D9DDF8B002D240B /* DeepstreamService.swift */; };
 		FAD824FE1D9DE29F002D240B /* TrackingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD824FC1D9DE29F002D240B /* TrackingViewController.swift */; };
 		FAD824FF1D9DE29F002D240B /* TrackingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD824FD1D9DE29F002D240B /* TrackingViewController.xib */; };
+		FAD825041D9DE344002D240B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD825021D9DE344002D240B /* LoginViewController.swift */; };
+		FAD825051D9DE344002D240B /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD825031D9DE344002D240B /* LoginViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,8 @@
 		FAD824FB1D9DE0F8002D240B /* PizzaTracker-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PizzaTracker-Bridging-Header.h"; sourceTree = "<group>"; };
 		FAD824FC1D9DE29F002D240B /* TrackingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingViewController.swift; sourceTree = "<group>"; };
 		FAD824FD1D9DE29F002D240B /* TrackingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrackingViewController.xib; sourceTree = "<group>"; };
+		FAD825021D9DE344002D240B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		FAD825031D9DE344002D240B /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,7 @@
 				FAD824F91D9DDF8B002D240B /* DeepstreamService.swift */,
 				FAD824FB1D9DE0F8002D240B /* PizzaTracker-Bridging-Header.h */,
 				FAD825001D9DE2A3002D240B /* TrackingViewController */,
+				FAD825061D9DE348002D240B /* LoginViewController */,
 			);
 			path = PizzaTracker;
 			sourceTree = "<group>";
@@ -107,6 +112,15 @@
 				FAD824F31D9DDEFF002D240B /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FAD825061D9DE348002D240B /* LoginViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FAD825021D9DE344002D240B /* LoginViewController.swift */,
+				FAD825031D9DE344002D240B /* LoginViewController.xib */,
+			);
+			name = LoginViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,6 +184,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAD825051D9DE344002D240B /* LoginViewController.xib in Resources */,
 				FAD824F21D9DDEFF002D240B /* LaunchScreen.storyboard in Resources */,
 				FAD824FF1D9DE29F002D240B /* TrackingViewController.xib in Resources */,
 				FAD824EF1D9DDEFF002D240B /* Assets.xcassets in Resources */,
@@ -231,6 +246,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAD825041D9DE344002D240B /* LoginViewController.swift in Sources */,
 				FAD824FE1D9DE29F002D240B /* TrackingViewController.swift in Sources */,
 				FAD824E81D9DDEFF002D240B /* AppDelegate.swift in Sources */,
 				FAD824FA1D9DDF8B002D240B /* DeepstreamService.swift in Sources */,
