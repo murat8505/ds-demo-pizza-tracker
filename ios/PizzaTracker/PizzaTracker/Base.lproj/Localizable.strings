@@ -7,6 +7,9 @@
 */
 
 "Alert.OK" = "OK";
+"Alert.LocationAuthorizationDenied.Message" = "Location access denied. Please change in settings";
+"Alert.Cancel" = "Cancel";
+"Alert.OpenSettings" = "Open Settings";
 
 "Login.Username" = "Username";
 "Login.Password" = "Password";
