@@ -13,4 +13,4 @@
 "Login.SignIn" = "Sign in";
 "Login.UsernameInvalid" = "This username is invalid";
 "Login.PasswordInvalid" = "This password is too short";
-"Login.PasswordIncorrect" = "This oassword is incorrect"
+"Login.PasswordIncorrect" = "This oassword is incorrect";
