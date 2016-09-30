@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import CoreLocation
 
-class TrackingViewController: UIViewController {
+final class TrackingViewController: UIViewController {
 
+    var locationManager : CLLocationManager!
+    
     init() {
         super.init(nibName: nil, bundle: nil)
     }
@@ -20,5 +23,18 @@ class TrackingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.locationManager = CLLocationManager()
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        self.locationManager.delegate = self
+        
+        if (CLLocationManager.authorizationStatus() == .NotDetermined)
+        {
+            self.locationManager.requestWhenInUseAuthorization()
+        }
+        else
+        {
+            self.locationManager.startUpdatingLocation()
+        }
     }
 }
