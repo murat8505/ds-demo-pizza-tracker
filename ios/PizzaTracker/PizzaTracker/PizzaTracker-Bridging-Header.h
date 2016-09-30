@@ -10,5 +10,6 @@
 #define PizzaTracker_Bridging_Header_h
 
 #import <DeepstreamIO/DeepstreamIO.h>
+#import "ObjC.h"
 
 #endif /* PizzaTracker_Bridging_Header_h */

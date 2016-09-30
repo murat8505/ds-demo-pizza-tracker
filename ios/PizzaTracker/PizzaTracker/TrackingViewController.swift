@@ -11,9 +11,16 @@ import CoreLocation
 
 final class TrackingViewController: UIViewController {
 
-    var locationManager : CLLocationManager!
+    var client : DeepstreamClient!
+    var record : Record?
     
-    init() {
+    var locationManager : CLLocationManager!
+    var username : String!
+    
+    init(username: String, client: DeepstreamClient) {
+        print("Logged in with username: \(username)")
+        self.client = client
+        self.username = username
         super.init(nibName: nil, bundle: nil)
     }
     

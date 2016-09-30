@@ -13,7 +13,6 @@ public final class DeepstreamService {
     static let sharedInstance = DeepstreamService()
     
     private (set) var deepstreamClient : DeepstreamClient!
-    public var userName : String?
     
     /*
         NOTE:
@@ -25,6 +24,6 @@ public final class DeepstreamService {
         See: http://stackoverflow.com/a/10456557
     */
     init() {
-        self.deepstreamClient = DeepstreamClient("52.29.229.244:6021")
+        self.deepstreamClient = DeepstreamClient("178.62.37.180:6021")
     }
 }

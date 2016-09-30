@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B79B62477737D5FA87CA160D /* Pods_PizzaTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE74A5F8F117FDA8D2E0654B /* Pods_PizzaTracker.framework */; };
+		FA6D848A1D9EE985008A983C /* ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6D84891D9EE985008A983C /* ObjC.m */; };
 		FA9B295D1D9EDD53008F35E1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA9B295B1D9EDD53008F35E1 /* Localizable.strings */; };
 		FA9B295F1D9EDD63008F35E1 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9B295E1D9EDD63008F35E1 /* UIViewController+Alert.swift */; };
 		FA9B29611D9EDD69008F35E1 /* TrackingViewController+CLLocationManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9B29601D9EDD69008F35E1 /* TrackingViewController+CLLocationManagerDelegate.swift */; };
@@ -27,6 +28,8 @@
 		25F016570D3C98DC4C2A3349 /* Pods-PizzaTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PizzaTracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PizzaTracker/Pods-PizzaTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		AE74A5F8F117FDA8D2E0654B /* Pods_PizzaTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PizzaTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DED74902FB7A996EFC4BB9DB /* Pods-PizzaTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PizzaTracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-PizzaTracker/Pods-PizzaTracker.release.xcconfig"; sourceTree = "<group>"; };
+		FA6D84881D9EE96D008A983C /* ObjC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjC.h; sourceTree = "<group>"; };
+		FA6D84891D9EE985008A983C /* ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjC.m; sourceTree = "<group>"; };
 		FA9B295C1D9EDD53008F35E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FA9B295E1D9EDD63008F35E1 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		FA9B29601D9EDD69008F35E1 /* TrackingViewController+CLLocationManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TrackingViewController+CLLocationManagerDelegate.swift"; sourceTree = "<group>"; };
@@ -124,6 +127,8 @@
 				FAD824EE1D9DDEFF002D240B /* Assets.xcassets */,
 				FAD824F01D9DDEFF002D240B /* LaunchScreen.storyboard */,
 				FAD824F31D9DDEFF002D240B /* Info.plist */,
+				FA6D84881D9EE96D008A983C /* ObjC.h */,
+				FA6D84891D9EE985008A983C /* ObjC.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -272,6 +277,7 @@
 			files = (
 				FA9B295F1D9EDD63008F35E1 /* UIViewController+Alert.swift in Sources */,
 				FAD825041D9DE344002D240B /* LoginViewController.swift in Sources */,
+				FA6D848A1D9EE985008A983C /* ObjC.m in Sources */,
 				FAD824FE1D9DE29F002D240B /* TrackingViewController.swift in Sources */,
 				FAD824E81D9DDEFF002D240B /* AppDelegate.swift in Sources */,
 				FA9B29611D9EDD69008F35E1 /* TrackingViewController+CLLocationManagerDelegate.swift in Sources */,

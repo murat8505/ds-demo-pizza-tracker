@@ -64,22 +64,33 @@ class LoginViewController: UIViewController {
         
         self.activityIndicator.startAnimating()
         
-        let dsService = DeepstreamService.sharedInstance
-
-        let jsonAuthParams = JsonObject()
-        jsonAuthParams.addPropertyWithNSString("username", withNSString: username)
-        jsonAuthParams.addPropertyWithNSString("password", withNSString: password)
-        
-        dsService.userName = username
-        
-        let loginResult = dsService.deepstreamClient.loginWithJsonElement(jsonAuthParams)
-        
-        if (loginResult.loggedIn()) {
-            let trackingViewController = TrackingViewController()
-            self.navigationController?.pushViewController(trackingViewController, animated: true)
-        } else {
-            self.showAlert("Login.PasswordIncorrect".localized)
-            self.activityIndicator.stopAnimating()
-        }
+        let qualityOfServiceClass = QOS_CLASS_BACKGROUND
+        let backgroundQueue = dispatch_get_global_queue(qualityOfServiceClass, 0)
+        dispatch_async(backgroundQueue, {
+            
+            // Setup Deepstream.io client
+            guard let client = DeepstreamClient("138.68.154.77:6021") else {
+                print("Error: Unable to init client")
+                return
+            }
+            
+            // Login
+            
+            let jsonAuthParams = JsonObject()
+            jsonAuthParams.addPropertyWithNSString("username", withNSString: username)
+            jsonAuthParams.addPropertyWithNSString("password", withNSString: password)
+            
+            let loginResult = client.loginWithJsonElement(jsonAuthParams)
+            
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                if (loginResult.loggedIn()) {
+                    let trackingViewController = TrackingViewController(username: username, client: client)
+                    self.presentViewController(trackingViewController, animated: true, completion: nil)
+                } else {
+                    self.showAlert("Login.PasswordIncorrect".localized)
+                    self.activityIndicator.stopAnimating()
+                }
+            })
+        })
     }
 }

@@ -43,15 +43,25 @@ extension TrackingViewController : CLLocationManagerDelegate {
         let latitude = newLocation.coordinate.latitude
         let longitude = newLocation.coordinate.longitude
         
-        let service = DeepstreamService.sharedInstance
-        let client = service.deepstreamClient
-        
-        if let username = service.userName, let record = client.record?.getRecord(username) {
-            let coords = JsonObject()
-            coords.addPropertyWithNSString("lat", withNSNumber: latitude)
-            coords.addPropertyWithNSString("lat", withNSNumber: longitude)
-            record.set(coords)
-            print(coords)
+        guard let recordHandler = self.client.record else {
+            print("Error: unable to get recordHandler")
+            return
         }
+        
+        do {
+            try ObjC.catchException {
+                if let record = recordHandler.getRecord(self.username) {
+                    let coords = JsonObject()
+                    coords.addPropertyWithNSString("lat", withNSNumber: latitude)
+                    coords.addPropertyWithNSString("lat", withNSNumber: longitude)
+                    record.set(coords)
+                    print(coords)
+                }
+            }
+        }
+        catch let error {
+            print("An error ocurred: \(error)")
+        }
+
     }
 }
