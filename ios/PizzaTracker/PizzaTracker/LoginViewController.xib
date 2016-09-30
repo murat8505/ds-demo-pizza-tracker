@@ -3,10 +3,13 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="PizzaTracker" customModuleProvider="target">
             <connections>
+                <outlet property="passwordTextField" destination="tXk-pg-V6I" id="Cfo-nU-nCt"/>
+                <outlet property="usernameTextField" destination="UZ2-ig-eeW" id="fwe-Ti-efo"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -14,7 +17,27 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UZ2-ig-eeW">
+                    <rect key="frame" x="120" y="30" width="360" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tXk-pg-V6I">
+                    <rect key="frame" x="120" y="78" width="360" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="tXk-pg-V6I" firstAttribute="top" secondItem="UZ2-ig-eeW" secondAttribute="bottom" constant="18" id="2EZ-Qc-60Y"/>
+                <constraint firstItem="UZ2-ig-eeW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="Ucx-Zf-hMz"/>
+                <constraint firstItem="UZ2-ig-eeW" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="cKP-Xd-lEc"/>
+                <constraint firstItem="tXk-pg-V6I" firstAttribute="width" secondItem="UZ2-ig-eeW" secondAttribute="width" id="g9E-Ek-fQc"/>
+                <constraint firstItem="UZ2-ig-eeW" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.6" id="imZ-jo-Tth"/>
+                <constraint firstItem="tXk-pg-V6I" firstAttribute="centerX" secondItem="UZ2-ig-eeW" secondAttribute="centerX" id="ntW-l6-5L7"/>
+            </constraints>
         </view>
     </objects>
 </document>
