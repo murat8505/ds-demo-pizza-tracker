@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  PizzaTracker
+
+  Created by Akram Hussein on 30/09/2016.
+  Copyright © 2016 deepstreamHub GmbH. All rights reserved.
+*/
+
+"Alert.OK" = "OK";
+
+"Login.Username" = "Username";
+"Login.Password" = "Password";
+"Login.SignIn" = "Sign in";
+"Login.UsernameInvalid" = "This username is invalid";
+"Login.PasswordInvalid" = "This password is too short";
+"Login.PasswordIncorrect" = "This oassword is incorrect"

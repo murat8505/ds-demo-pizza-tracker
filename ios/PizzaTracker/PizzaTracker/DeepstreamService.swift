@@ -8,12 +8,12 @@
 
 import Foundation
 
-final class DeepstreamService {
+public final class DeepstreamService {
     
     static let sharedInstance = DeepstreamService()
     
-    private (set) var userName : String?
-    private var deepstreamClient : DeepstreamClient!
+    private (set) var deepstreamClient : DeepstreamClient!
+    public var userName : String?
     
     init() {
         self.deepstreamClient = DeepstreamClient("52.29.229.244:6021")

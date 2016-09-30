@@ -8,6 +8,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="PizzaTracker" customModuleProvider="target">
             <connections>
+                <outlet property="activityIndicator" destination="K3p-fr-hVV" id="oPY-nX-IDd"/>
+                <outlet property="loginButtonPressed" destination="axw-2i-2YL" id="F5L-jt-lOW"/>
                 <outlet property="passwordTextField" destination="tXk-pg-V6I" id="Cfo-nU-nCt"/>
                 <outlet property="usernameTextField" destination="UZ2-ig-eeW" id="fwe-Ti-efo"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -28,14 +30,34 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="axw-2i-2YL">
+                    <rect key="frame" x="120" y="138" width="360" height="40"/>
+                    <color key="backgroundColor" red="0.0" green="0.58847403060869929" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="L1C-dX-tca"/>
+                    </constraints>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <state key="normal" title="Sign in"/>
+                    <connections>
+                        <action selector="loginButtonPressed:" destination="-1" eventType="touchUpInside" id="3qb-2D-Ppe"/>
+                    </connections>
+                </button>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="K3p-fr-hVV">
+                    <rect key="frame" x="452" y="148" width="20" height="20"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="tXk-pg-V6I" firstAttribute="top" secondItem="UZ2-ig-eeW" secondAttribute="bottom" constant="18" id="2EZ-Qc-60Y"/>
+                <constraint firstItem="axw-2i-2YL" firstAttribute="centerX" secondItem="tXk-pg-V6I" secondAttribute="centerX" id="CP4-ut-lsG"/>
+                <constraint firstItem="axw-2i-2YL" firstAttribute="width" secondItem="tXk-pg-V6I" secondAttribute="width" id="Leo-uq-dc1"/>
                 <constraint firstItem="UZ2-ig-eeW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="Ucx-Zf-hMz"/>
+                <constraint firstItem="axw-2i-2YL" firstAttribute="top" secondItem="tXk-pg-V6I" secondAttribute="bottom" constant="30" id="akq-g7-KUe"/>
                 <constraint firstItem="UZ2-ig-eeW" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="cKP-Xd-lEc"/>
                 <constraint firstItem="tXk-pg-V6I" firstAttribute="width" secondItem="UZ2-ig-eeW" secondAttribute="width" id="g9E-Ek-fQc"/>
                 <constraint firstItem="UZ2-ig-eeW" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.6" id="imZ-jo-Tth"/>
+                <constraint firstItem="K3p-fr-hVV" firstAttribute="trailing" secondItem="axw-2i-2YL" secondAttribute="trailing" constant="-8" id="knt-Na-MRD"/>
+                <constraint firstItem="K3p-fr-hVV" firstAttribute="centerY" secondItem="axw-2i-2YL" secondAttribute="centerY" id="nQf-VB-SIP"/>
                 <constraint firstItem="tXk-pg-V6I" firstAttribute="centerX" secondItem="UZ2-ig-eeW" secondAttribute="centerX" id="ntW-l6-5L7"/>
             </constraints>
         </view>
