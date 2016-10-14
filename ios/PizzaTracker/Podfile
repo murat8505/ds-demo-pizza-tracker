@@ -6,6 +6,6 @@ target 'PizzaTracker' do
   use_frameworks!
 
   # Pods for PizzaTracker
-  pod 'DeepstreamIO'
+  pod 'DeepstreamIO', :podspec => '/Users/ahussein/Developer/deepstream.io-client-ios/DeepstreamIO.podspec'
 
 end
