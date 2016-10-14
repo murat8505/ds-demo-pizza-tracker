@@ -6,7 +6,8 @@ This can obviously do with a large amount of other features. But thats not what 
 
 ### Android/iOS
 
-![Android View](MobileView-android.PNG) ![iOS View](MobileView-ios.PNG)
+<img src="MobileView-android.PNG" width="200">
+<img src="MobileView-ios.PNG" width="200">
 
 Login to an android/iOS phone as a delivery guy with a username and password to track your position and update it live.
 
