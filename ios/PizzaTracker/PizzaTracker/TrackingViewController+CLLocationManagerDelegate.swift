@@ -11,34 +11,40 @@ import CoreLocation
 import UIKit
 
 extension TrackingViewController : CLLocationManagerDelegate {
-    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         switch status {
-        case .AuthorizedWhenInUse, .AuthorizedAlways:
+        case .authorizedWhenInUse, .authorizedAlways:
             self.locationManager.startUpdatingLocation()
-        case .NotDetermined:
+        case .notDetermined:
             self.locationManager.requestWhenInUseAuthorization()
-        case .Restricted, .Denied:
+        case .restricted, .denied:
             let alertController = UIAlertController(
                 title: nil,
                 message: "Alert.LocationAuthorizationDenied.Message".localized,
-                preferredStyle: .Alert)
+                preferredStyle: .alert)
             
-            let cancelAction = UIAlertAction(title: "Alert.Cancel".localized, style: .Cancel, handler: nil)
+            let cancelAction = UIAlertAction(title: "Alert.Cancel".localized, style: .cancel, handler: nil)
             alertController.addAction(cancelAction)
             
-            let openAction = UIAlertAction(title: "Alert.OpenSettings".localized, style: .Default) { (action) in
-                if let url = NSURL(string:UIApplicationOpenSettingsURLString) {
-                    UIApplication.sharedApplication().openURL(url)
+            let openAction = UIAlertAction(title: "Alert.OpenSettings".localized, style: .default) { (action) in
+                if let url = URL(string:UIApplicationOpenSettingsURLString) {
+                    UIApplication.shared.openURL(url)
                 }
             }
             alertController.addAction(openAction)
             
-            self.presentViewController(alertController, animated: true, completion: nil)
+            self.present(alertController, animated: true, completion: nil)
         }
     }
-    
-    
-    func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
+
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        guard let newLocation = locations.last
+        else
+        {
+            print("No new location")
+            return
+        }
         
         let latitude = newLocation.coordinate.latitude
         let longitude = newLocation.coordinate.longitude
@@ -50,10 +56,11 @@ extension TrackingViewController : CLLocationManagerDelegate {
         
         do {
             try ObjC.catchException {
-                if let record = recordHandler.getRecord(self.username) {
-                    let coords = JsonObject()
-                    coords.addPropertyWithNSString("lat", withNSNumber: latitude)
-                    coords.addPropertyWithNSString("lat", withNSNumber: longitude)
+                if let record = recordHandler.getRecord(self.username),
+                    let coords = JsonObject() {
+                    
+                    coords.addProperty(with: "lat", with: latitude as NSNumber!)
+                    coords.addProperty(with: "lat", with: longitude as NSNumber!)
                     record.set(coords)
                     print(coords)
                 }
@@ -62,6 +69,5 @@ extension TrackingViewController : CLLocationManagerDelegate {
         catch let error {
             print("An error ocurred: \(error)")
         }
-
     }
 }

@@ -12,7 +12,7 @@ public final class DeepstreamService {
     
     static let sharedInstance = DeepstreamService()
     
-    private (set) var deepstreamClient : DeepstreamClient!
+    fileprivate (set) var deepstreamClient : DeepstreamClient!
     
     /*
         NOTE:

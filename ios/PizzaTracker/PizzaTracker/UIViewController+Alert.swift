@@ -10,15 +10,15 @@ import UIKit
 
 extension UIViewController
 {
-    func showAlert(message: String, okPressed: (() -> Void)? = nil)
+    func showAlert(_ message: String, okPressed: (() -> Void)? = nil)
     {
-        let alertController = UIAlertController(title: nil, message: message, preferredStyle: .Alert)
-        let actionOk = UIAlertAction(title: "Alert.OK".localized, style: .Default) { (alert) in
+        let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        let actionOk = UIAlertAction(title: "Alert.OK".localized, style: .default) { (alert) in
             okPressed?()
         }
         alertController.addAction(actionOk)
-        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-            self.presentViewController(alertController, animated: true, completion: nil)
+        DispatchQueue.main.async(execute: { () -> Void in
+            self.present(alertController, animated: true, completion: nil)
         })
     }
 }

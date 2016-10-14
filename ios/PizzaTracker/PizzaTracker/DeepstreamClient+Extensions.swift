@@ -12,7 +12,7 @@ extension DeepstreamClient
 {
     var record : RecordHandler? {
         get {
-            return self.valueForKey("record_") as? RecordHandler
+            return self.value(forKey: "record_") as? RecordHandler
         }
     }
 }

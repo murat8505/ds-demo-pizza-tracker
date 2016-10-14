@@ -35,7 +35,7 @@ final class TrackingViewController: UIViewController {
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.delegate = self
         
-        if (CLLocationManager.authorizationStatus() == .NotDetermined)
+        if (CLLocationManager.authorizationStatus() == .notDetermined)
         {
             self.locationManager.requestWhenInUseAuthorization()
         }

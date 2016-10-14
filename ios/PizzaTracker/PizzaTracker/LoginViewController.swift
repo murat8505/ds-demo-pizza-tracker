@@ -26,7 +26,7 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var loginButtonPressed: UIButton!  {
         didSet {
-            self.loginButtonPressed.setTitle("Login.SignIn".localized, forState: .Normal)
+            self.loginButtonPressed.setTitle("Login.SignIn".localized, for: UIControlState())
         }
     }
     
@@ -51,22 +51,22 @@ class LoginViewController: UIViewController {
     
     // UI Actions
     
-    @IBAction func loginButtonPressed(sender: AnyObject) {
-        guard let username = self.usernameTextField.text where !username.isEmpty() else {
+    @IBAction func loginButtonPressed(_ sender: AnyObject) {
+        guard let username = self.usernameTextField.text , !username.isEmpty else {
             self.showAlert("Login.UsernameInvalid".localized)
             return
         }
         
-        guard let password = self.passwordTextField.text where !password.isEmpty() else {
+        guard let password = self.passwordTextField.text , !password.isEmpty else {
             self.showAlert("Login.PasswordInvalid".localized)
             return
         }
         
         self.activityIndicator.startAnimating()
         
-        let qualityOfServiceClass = QOS_CLASS_BACKGROUND
-        let backgroundQueue = dispatch_get_global_queue(qualityOfServiceClass, 0)
-        dispatch_async(backgroundQueue, {
+        let qualityOfServiceClass = DispatchQoS.QoSClass.background
+        let backgroundQueue = DispatchQueue.global(qos: qualityOfServiceClass)
+        backgroundQueue.async(execute: {
             
             // Setup Deepstream.io client
             guard let client = DeepstreamClient("138.68.154.77:6021") else {
@@ -76,16 +76,23 @@ class LoginViewController: UIViewController {
             
             // Login
             
-            let jsonAuthParams = JsonObject()
-            jsonAuthParams.addPropertyWithNSString("username", withNSString: username)
-            jsonAuthParams.addPropertyWithNSString("password", withNSString: password)
+            guard let jsonAuthParams = JsonObject() else {
+                print("Error: Unable to init JsonObject")
+                return
+            }
             
-            let loginResult = client.loginWithJsonElement(jsonAuthParams)
+            jsonAuthParams.addProperty(with: "username", with: username)
+            jsonAuthParams.addProperty(with: "password", with: password)
             
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            guard let loginResult = client.login(with: jsonAuthParams) else {
+                print("Error: Unable login")
+                return
+            }
+            
+            DispatchQueue.main.async(execute: { () -> Void in
                 if (loginResult.loggedIn()) {
                     let trackingViewController = TrackingViewController(username: username, client: client)
-                    self.presentViewController(trackingViewController, animated: true, completion: nil)
+                    self.present(trackingViewController, animated: true, completion: nil)
                 } else {
                     self.showAlert("Login.PasswordIncorrect".localized)
                     self.activityIndicator.stopAnimating()
