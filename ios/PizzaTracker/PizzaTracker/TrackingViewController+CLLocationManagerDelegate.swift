@@ -60,8 +60,11 @@ extension TrackingViewController : CLLocationManagerDelegate {
                     let coords = JsonObject() {
                     
                     coords.addProperty(with: "lat", with: latitude as NSNumber!)
-                    coords.addProperty(with: "lat", with: longitude as NSNumber!)
+                    coords.addProperty(with: "lon", with: longitude as NSNumber!)
+                    coords.addProperty(with: "online", with: true)
+                    
                     record.set(coords)
+                    
                     print(coords)
                 }
             }
