@@ -1,16 +1,12 @@
 PODS:
-  - DeepstreamIO (0.8.0)
+  - DeepstreamIO (1.0.0)
 
 DEPENDENCIES:
-  - DeepstreamIO (from `/Users/ahussein/Developer/deepstream.io-client-ios/DeepstreamIO.podspec`)
-
-EXTERNAL SOURCES:
-  DeepstreamIO:
-    :podspec: /Users/ahussein/Developer/deepstream.io-client-ios/DeepstreamIO.podspec
+  - DeepstreamIO (= 1.0.0)
 
 SPEC CHECKSUMS:
-  DeepstreamIO: ee2d8d9ee66718539e14b846cd9e3aa63bbd0b66
+  DeepstreamIO: 1677cad0f8bc762fdd901386695618812bbb327d
 
-PODFILE CHECKSUM: 6a75aa7c61dc61b14b4b899b0b44f9d3f25b43a7
+PODFILE CHECKSUM: db1e7a70267fdfccfc98ff61053c5298c1c8924f
 
-COCOAPODS: 1.1.0.rc.2
+COCOAPODS: 1.1.1

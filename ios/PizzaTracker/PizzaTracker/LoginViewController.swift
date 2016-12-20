@@ -75,16 +75,13 @@ class LoginViewController: UIViewController {
             }
             
             // Login
+
+            let authParams = [
+                "username" : username,
+                "password" : password
+            ]
             
-            guard let jsonAuthParams = JsonObject() else {
-                print("Error: Unable to init JsonObject")
-                return
-            }
-            
-            jsonAuthParams.addProperty(with: "username", with: username)
-            jsonAuthParams.addProperty(with: "password", with: password)
-            
-            guard let loginResult = client.login(with: jsonAuthParams) else {
+            guard let loginResult = client.login(with: authParams.jsonElement) else {
                 print("Error: Unable login")
                 return
             }

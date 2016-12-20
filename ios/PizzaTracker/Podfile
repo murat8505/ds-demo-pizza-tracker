@@ -6,6 +6,6 @@ target 'PizzaTracker' do
   use_frameworks!
 
   # Pods for PizzaTracker
-  pod 'DeepstreamIO', '0.8.0'
+  pod 'DeepstreamIO', '1.0.0'
 
 end

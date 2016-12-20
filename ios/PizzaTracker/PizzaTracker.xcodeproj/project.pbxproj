@@ -8,11 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		B79B62477737D5FA87CA160D /* Pods_PizzaTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE74A5F8F117FDA8D2E0654B /* Pods_PizzaTracker.framework */; };
-		FA6D848A1D9EE985008A983C /* ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6D84891D9EE985008A983C /* ObjC.m */; };
+		FA72F8E01E097B4500651ED1 /* DeepstreamClient+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA72F8DC1E097B4500651ED1 /* DeepstreamClient+Extensions.swift */; };
+		FA72F8E11E097B4500651ED1 /* GSON+Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA72F8DD1E097B4500651ED1 /* GSON+Types.swift */; };
+		FA72F8E21E097B4500651ED1 /* JavaUtilProperties+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA72F8DE1E097B4500651ED1 /* JavaUtilProperties+Extension.swift */; };
 		FA9B295D1D9EDD53008F35E1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA9B295B1D9EDD53008F35E1 /* Localizable.strings */; };
 		FA9B295F1D9EDD63008F35E1 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9B295E1D9EDD63008F35E1 /* UIViewController+Alert.swift */; };
 		FA9B29611D9EDD69008F35E1 /* TrackingViewController+CLLocationManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9B29601D9EDD69008F35E1 /* TrackingViewController+CLLocationManagerDelegate.swift */; };
-		FA9B29631D9EDD7D008F35E1 /* DeepstreamClient+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9B29621D9EDD7D008F35E1 /* DeepstreamClient+Extensions.swift */; };
 		FAD824E81D9DDEFF002D240B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD824E71D9DDEFF002D240B /* AppDelegate.swift */; };
 		FAD824EF1D9DDEFF002D240B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAD824EE1D9DDEFF002D240B /* Assets.xcassets */; };
 		FAD824F21D9DDEFF002D240B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD824F01D9DDEFF002D240B /* LaunchScreen.storyboard */; };
@@ -28,12 +29,12 @@
 		25F016570D3C98DC4C2A3349 /* Pods-PizzaTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PizzaTracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PizzaTracker/Pods-PizzaTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		AE74A5F8F117FDA8D2E0654B /* Pods_PizzaTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PizzaTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DED74902FB7A996EFC4BB9DB /* Pods-PizzaTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PizzaTracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-PizzaTracker/Pods-PizzaTracker.release.xcconfig"; sourceTree = "<group>"; };
-		FA6D84881D9EE96D008A983C /* ObjC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjC.h; sourceTree = "<group>"; };
-		FA6D84891D9EE985008A983C /* ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjC.m; sourceTree = "<group>"; };
+		FA72F8DC1E097B4500651ED1 /* DeepstreamClient+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DeepstreamClient+Extensions.swift"; path = "swift/DeepstreamClient+Extensions.swift"; sourceTree = "<group>"; };
+		FA72F8DD1E097B4500651ED1 /* GSON+Types.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "GSON+Types.swift"; path = "swift/GSON+Types.swift"; sourceTree = "<group>"; };
+		FA72F8DE1E097B4500651ED1 /* JavaUtilProperties+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "JavaUtilProperties+Extension.swift"; path = "swift/JavaUtilProperties+Extension.swift"; sourceTree = "<group>"; };
 		FA9B295C1D9EDD53008F35E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FA9B295E1D9EDD63008F35E1 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		FA9B29601D9EDD69008F35E1 /* TrackingViewController+CLLocationManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TrackingViewController+CLLocationManagerDelegate.swift"; sourceTree = "<group>"; };
-		FA9B29621D9EDD7D008F35E1 /* DeepstreamClient+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DeepstreamClient+Extensions.swift"; sourceTree = "<group>"; };
 		FAD824E41D9DDEFF002D240B /* PizzaTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PizzaTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAD824E71D9DDEFF002D240B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAD824EE1D9DDEFF002D240B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -77,6 +78,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FA72F8DF1E097B4500651ED1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FA72F8DC1E097B4500651ED1 /* DeepstreamClient+Extensions.swift */,
+				FA72F8DD1E097B4500651ED1 /* GSON+Types.swift */,
+				FA72F8DE1E097B4500651ED1 /* JavaUtilProperties+Extension.swift */,
+			);
+			name = Resources;
+			path = ../Pods/DeepstreamIO;
+			sourceTree = "<group>";
+		};
 		FAD824DB1D9DDEFE002D240B = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +114,7 @@
 				FAD824E71D9DDEFF002D240B /* AppDelegate.swift */,
 				FAFA0C2A1D9EE00C0065372B /* Deepstream */,
 				FAFA0C281D9EDF460065372B /* String+Localization.swift */,
+				FA72F8DF1E097B4500651ED1 /* Resources */,
 				FAD825001D9DE2A3002D240B /* TrackingViewController */,
 				FAD825061D9DE348002D240B /* LoginViewController */,
 				FAD825011D9DE2AB002D240B /* Supporting Files */,
@@ -127,8 +140,6 @@
 				FAD824EE1D9DDEFF002D240B /* Assets.xcassets */,
 				FAD824F01D9DDEFF002D240B /* LaunchScreen.storyboard */,
 				FAD824F31D9DDEFF002D240B /* Info.plist */,
-				FA6D84881D9EE96D008A983C /* ObjC.h */,
-				FA6D84891D9EE985008A983C /* ObjC.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -146,7 +157,6 @@
 			isa = PBXGroup;
 			children = (
 				FAD824F91D9DDF8B002D240B /* DeepstreamService.swift */,
-				FA9B29621D9EDD7D008F35E1 /* DeepstreamClient+Extensions.swift */,
 			);
 			name = Deepstream;
 			sourceTree = "<group>";
@@ -276,13 +286,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA72F8E21E097B4500651ED1 /* JavaUtilProperties+Extension.swift in Sources */,
 				FA9B295F1D9EDD63008F35E1 /* UIViewController+Alert.swift in Sources */,
 				FAD825041D9DE344002D240B /* LoginViewController.swift in Sources */,
-				FA6D848A1D9EE985008A983C /* ObjC.m in Sources */,
 				FAD824FE1D9DE29F002D240B /* TrackingViewController.swift in Sources */,
+				FA72F8E01E097B4500651ED1 /* DeepstreamClient+Extensions.swift in Sources */,
 				FAD824E81D9DDEFF002D240B /* AppDelegate.swift in Sources */,
+				FA72F8E11E097B4500651ED1 /* GSON+Types.swift in Sources */,
 				FA9B29611D9EDD69008F35E1 /* TrackingViewController+CLLocationManagerDelegate.swift in Sources */,
-				FA9B29631D9EDD7D008F35E1 /* DeepstreamClient+Extensions.swift in Sources */,
 				FAD824FA1D9DDF8B002D240B /* DeepstreamService.swift in Sources */,
 				FAFA0C291D9EDF460065372B /* String+Localization.swift in Sources */,
 			);

@@ -49,28 +49,21 @@ extension TrackingViewController : CLLocationManagerDelegate {
         let latitude = newLocation.coordinate.latitude
         let longitude = newLocation.coordinate.longitude
         
-        guard let recordHandler = self.client.record else {
-            print("Error: unable to get recordHandler")
+        let recordHandler = self.client.record
+
+        guard let record = recordHandler.getRecord(self.username) else {
+            print("Unable to get record for \(self.username)")
             return
         }
         
-        do {
-            try ObjC.catchException {
-                if let record = recordHandler.getRecord(self.username),
-                    let coords = JsonObject() {
-                    
-                    coords.addProperty(with: "lat", with: latitude as NSNumber!)
-                    coords.addProperty(with: "lon", with: longitude as NSNumber!)
-                    coords.addProperty(with: "online", with: true)
-                    
-                    record.set(coords)
-                    
-                    print(coords)
-                }
-            }
-        }
-        catch let error {
-            print("An error ocurred: \(error)")
-        }
+        let coords : [String : Any] = [
+            "lat" : latitude,
+            "lon" : longitude,
+            "online" : true
+        ]
+
+        print(coords)
+        
+        record.set(coords.jsonElement)
     }
 }

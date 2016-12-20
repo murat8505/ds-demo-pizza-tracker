@@ -23,7 +23,7 @@ final class TrackingViewController: UIViewController {
         self.username = username
         super.init(nibName: nil, bundle: nil)
         
-        guard let users = client.record?.getList("pizza-tracker/users") else {
+        guard let users = client.record.getList("pizza-tracker/users") else {
             print("Error: unable to get user list")
             return
         }

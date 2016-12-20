@@ -24,6 +24,6 @@ public final class DeepstreamService {
         See: http://stackoverflow.com/a/10456557
     */
     init() {
-        self.deepstreamClient = DeepstreamClient("178.62.37.180:6021")
+        self.deepstreamClient = DeepstreamClient("0.0.0.0:6020")
     }
 }
