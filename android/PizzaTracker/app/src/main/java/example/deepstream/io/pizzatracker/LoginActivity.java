@@ -3,12 +3,15 @@ package example.deepstream.io.pizzatracker;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -18,9 +21,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import com.google.gson.JsonObject;
+
+import java.net.URISyntaxException;
+
 import io.deepstream.DeepstreamClient;
-import io.deepstream.DeepstreamLoginException;
+import io.deepstream.DeepstreamFactory;
+import io.deepstream.DeepstreamRuntimeErrorHandler;
+import io.deepstream.Event;
 import io.deepstream.LoginResult;
+import io.deepstream.Topic;
 
 /**
  * A login screen that offers login via email/password.
@@ -37,10 +46,14 @@ public class LoginActivity extends AppCompatActivity {
     private View mProgressView;
     private View mLoginFormView;
 
+    private State state;
+    private Context ctx;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        ctx = this;
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
 
@@ -66,6 +79,8 @@ public class LoginActivity extends AppCompatActivity {
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
+
+        state = State.getInstance();
     }
 
     /**
@@ -90,7 +105,7 @@ public class LoginActivity extends AppCompatActivity {
         View focusView = null;
 
         // Check for a valid password, if the user entered one.
-        if (TextUtils.isEmpty(password) ) {
+        if (TextUtils.isEmpty(password)) {
             mPasswordView.setError(getString(R.string.error_invalid_password));
             focusView = mPasswordView;
             cancel = true;
@@ -168,18 +183,27 @@ public class LoginActivity extends AppCompatActivity {
 
         @Override
         protected Boolean doInBackground(Void... params) {
-            DeepstreamClient client = DeepstreamService.getInstance().getDeepstreamClient();
+            DeepstreamFactory factory = DeepstreamFactory.getInstance();
+            DeepstreamClient client = null;
             try {
-                JsonObject authData = new JsonObject();
-                authData.addProperty( "username", mEmail );
-                authData.addProperty( "password", mPassword );
-                DeepstreamService.getInstance().setUserName( mEmail );
-                LoginResult loginResult = client.login( authData );
-                return loginResult.loggedIn();
-            } catch (DeepstreamLoginException e) {
+                client = factory.getClient(ctx.getString(R.string.dsh_app_url));
+            } catch (URISyntaxException e) {
                 e.printStackTrace();
-                return false;
             }
+            client.setRuntimeErrorHandler(new DeepstreamRuntimeErrorHandler() {
+                @Override
+                public void onException(Topic topic, Event event, String s) {
+                    Log.w("dsh", "Error:" + event.toString() + ":" + s);
+                }
+            });
+
+            JsonObject authData = new JsonObject();
+            authData.addProperty("type", "email");
+            authData.addProperty("email", mEmail);
+            authData.addProperty("password", mPassword);
+
+            LoginResult result = client.login(authData);
+            return result.loggedIn();
         }
 
         @Override
@@ -188,7 +212,8 @@ public class LoginActivity extends AppCompatActivity {
             showProgress(false);
 
             if (success) {
-                Intent intent = new Intent(LoginActivity.this,TrackingActivity.class);
+                state.setEmail(mEmail);
+                Intent intent = new Intent(LoginActivity.this, TrackingActivity.class);
                 startActivity(intent);
                 finish();
             } else {

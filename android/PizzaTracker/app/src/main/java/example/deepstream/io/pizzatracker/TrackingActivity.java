@@ -9,48 +9,59 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.Toast;
 import com.google.gson.JsonObject;
+
+import java.net.URISyntaxException;
+import java.util.Arrays;
+
 import io.deepstream.DeepstreamClient;
-import io.deepstream.DeepstreamRuntimeErrorHandler;
+import io.deepstream.DeepstreamFactory;
 import io.deepstream.List;
 import io.deepstream.Record;
-import io.deepstream.constants.Event;
-import io.deepstream.constants.Topic;
 
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 
 public class TrackingActivity extends AppCompatActivity {
+
     private LocationManager locationManager;
+    private DeepstreamFactory factory;
+    private DeepstreamClient client;
+    private State state;
+    private Record locationRecord;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
-        if (ActivityCompat.checkSelfPermission(this, ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this,
+        if (checkSelfPermission(ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(
                     new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
-                    15);
+                    15
+            );
         }
+
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
         locationManager.requestLocationUpdates(
                 LocationManager.GPS_PROVIDER, 2 * 60 * 1000, 10, locationListenerGPS);
 
-        DeepstreamClient client = DeepstreamService.getInstance().getDeepstreamClient();
-        client.setRuntimeErrorHandler(new DeepstreamRuntimeErrorHandler() {
-            @Override
-            public void onException(Topic topic, Event event, String s) {
-                System.err.println( topic.toString() + " " + event.toString() + " " + s);
-            }
-        });
-
-        String username = DeepstreamService.getInstance().getUserName();
-        List users = client.record.getList( "pizza-tracker/users" );
-        if( !users.getEntries().contains( username )) {
-            users.addEntry( username );
+        state = State.getInstance();
+        factory = DeepstreamFactory.getInstance();
+        try {
+            client = factory.getClient(this.getString(R.string.dsh_app_url));
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
         }
+
+        List users = client.record.getList( "pizza-tracker/users" );
+        if( !Arrays.asList( users.getEntries() ).contains( state.getEmail() )) {
+            users.addEntry( state.getEmail() );
+        }
+
+        locationRecord = client.record.getRecord(state.getEmail());
     }
 
     private final LocationListener locationListenerGPS = new LocationListener() {
@@ -69,9 +80,6 @@ public class TrackingActivity extends AppCompatActivity {
                 }
             });
 
-            DeepstreamClient client = DeepstreamService.getInstance().getDeepstreamClient();
-            Record record = client.record.getRecord(DeepstreamService.getInstance().getUserName());
-
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
@@ -80,10 +88,11 @@ public class TrackingActivity extends AppCompatActivity {
             });
 
             JsonObject coords = new JsonObject();
+            Log.w("dsh", "lat:" + latitudeNetwork + " long:" + longitudeNetwork);
             coords.addProperty( "lat", latitudeNetwork );
             coords.addProperty( "lng", longitudeNetwork );
             coords.addProperty( "online", true );
-            record.set( coords );
+            locationRecord.set( coords );
 
             System.out.println( coords );
 

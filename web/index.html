@@ -31,6 +31,10 @@
             title: `Location of delivery person: ${trackingId}`,
             icon: pizzaIcon
         });
+        record.whenReady((record) => {
+          marker.setPosition(record.get())
+        })
+
         record.subscribe( function( data ) {
            if( data.lon ) {
             data.lng = data.lon;
@@ -52,7 +56,7 @@
       }
 
       function initDeepstreamClient() {
-        client = deepstream( '52.29.229.244:6020' );
+        client = deepstream( 'Your app URL' );
         client.login( {}, function( success ) {
           var list = client.record.getList( 'pizza-tracker/users' );
           list.whenReady( renderList );
