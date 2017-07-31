@@ -50,11 +50,7 @@ public class TrackingActivity extends AppCompatActivity {
 
         state = State.getInstance();
         factory = DeepstreamFactory.getInstance();
-        try {
-            client = factory.getClient(this.getString(R.string.dsh_app_url));
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-        }
+        client = factory.getClient();
 
         List users = client.record.getList( "pizza-tracker/users" );
         if( !Arrays.asList( users.getEntries() ).contains( state.getEmail() )) {

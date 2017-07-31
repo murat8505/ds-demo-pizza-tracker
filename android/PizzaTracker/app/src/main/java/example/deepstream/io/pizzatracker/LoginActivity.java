@@ -198,7 +198,6 @@ public class LoginActivity extends AppCompatActivity {
             });
 
             JsonObject authData = new JsonObject();
-            authData.addProperty("type", "email");
             authData.addProperty("email", mEmail);
             authData.addProperty("password", mPassword);
 
